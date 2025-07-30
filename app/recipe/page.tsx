@@ -1,4 +1,5 @@
 "use client";
+
 import { useState } from "react";
 
 export default function RecipePage() {
@@ -37,11 +38,11 @@ export default function RecipePage() {
 
   return (
     <div className="max-w-2xl mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-6 text-center">AI Recipe Generator</h1>
+      <h1 className="text-3xl font-bold mb-4">Recipe Generator</h1>
 
       <label className="block mb-2 font-semibold">Dish Description</label>
       <textarea
-        className="w-full p-3 border border-gray-300 rounded bg-white text-black"
+        className="w-full p-3 border rounded bg-white text-black"
         rows={3}
         value={description}
         onChange={(e) => setDescription(e.target.value)}
@@ -49,7 +50,6 @@ export default function RecipePage() {
       />
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
-        {/* Cuisine Dropdown */}
         <div>
           <label className="block mb-1 font-semibold">Cuisine</label>
           <select
@@ -65,7 +65,6 @@ export default function RecipePage() {
           </select>
         </div>
 
-        {/* Time Dropdown */}
         <div>
           <label className="block mb-1 font-semibold">Time to Cook</label>
           <select
@@ -81,7 +80,6 @@ export default function RecipePage() {
           </select>
         </div>
 
-        {/* Difficulty Dropdown */}
         <div>
           <label className="block mb-1 font-semibold">Difficulty</label>
           <select
@@ -99,14 +97,14 @@ export default function RecipePage() {
 
       <button
         onClick={handleGenerate}
-        className="mt-6 px-6 py-2 bg-green-600 text-white font-semibold rounded hover:bg-green-700 w-full"
+        className="mt-6 px-6 py-2 bg-green-600 text-white font-semibold rounded hover:bg-green-700"
         disabled={loading}
       >
         {loading ? "Generating..." : "Generate Recipe"}
       </button>
 
       {recipe && (
-        <div className="mt-8 p-5 bg-white text-black dark:bg-gray-900 dark:text-white rounded shadow-md whitespace-pre-wrap">
+        <div className="mt-8 p-5 bg-white text-black rounded shadow-md whitespace-pre-wrap">
           <h2 className="text-2xl font-bold mb-2">Generated Recipe</h2>
           <p>{recipe}</p>
         </div>
